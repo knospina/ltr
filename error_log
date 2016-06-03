@@ -1,0 +1,20 @@
+[12-May-2016 13:20:26 Europe/Riga] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lotartlv/public_html/playground/static.php on line 27
+[12-May-2016 13:20:48 Europe/Riga] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lotartlv/public_html/playground/static.php on line 27
+[12-May-2016 13:21:14 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 21
+[12-May-2016 13:21:34 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 21
+[12-May-2016 13:22:21 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 19
+[12-May-2016 13:22:37 Europe/Riga] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lotartlv/public_html/playground/static.php on line 25
+[12-May-2016 13:22:53 Europe/Riga] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lotartlv/public_html/playground/static.php on line 25
+[12-May-2016 13:23:16 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 19
+[12-May-2016 13:24:49 Europe/Riga] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lotartlv/public_html/playground/static.php on line 25
+[12-May-2016 13:26:43 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 21
+[12-May-2016 13:27:04 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 27
+[12-May-2016 13:27:56 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 27
+[12-May-2016 13:28:52 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 19
+[12-May-2016 13:29:24 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 19
+[12-May-2016 13:29:42 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 25
+[12-May-2016 13:29:58 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 25
+[12-May-2016 13:30:40 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 28
+[12-May-2016 13:31:04 Europe/Riga] PHP Fatal error:  Cannot use object of type stdClass as array in /home/lotartlv/public_html/playground/static.php on line 28
+[23-May-2016 10:25:15 Europe/Riga] PHP Warning:  file_get_contents(http://www.playground.lotart.lv/slim/db-operation.php/article/90): failed to open stream: HTTP request failed! HTTP/1.1 500 Internal Server Error
+ in /home/lotartlv/public_html/playground/static.php on line 8

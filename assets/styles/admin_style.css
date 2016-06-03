@@ -1,0 +1,23 @@
+.admin-blog--nav {
+    text-align: right;
+}
+
+.admin-blog--nav .add-post {
+    font-size: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.admin-blog-container, .posting--form {
+    padding: 20px 120px;
+}
+
+.admin-blog-container article {
+    border-bottom: 1px solid rgb(18, 42, 10);
+    padding: 10px 0;
+}
+
+.admin-blog-container .additional-options a {
+    cursor: pointer;
+    text-decoration: underline;
+}

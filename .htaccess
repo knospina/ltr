@@ -1,0 +1,23 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet|Disqus/1.0)
+RewriteRule ^article/(.*)$ http://playground.lotart.lv/static.php?id=$1 [NC,L]
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet|Disqus/1.0)
+RewriteRule ^blog/(.*)$ http://playground.lotart.lv/static.php?id=$1 [NC,L]
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet|Disqus/1.0)
+RewriteRule ^$ http://playground.lotart.lv/template.html [NC,L]
+
+
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+
+
+
+
+
+
