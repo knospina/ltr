@@ -1,0 +1,31 @@
+<div class="blog-container">
+    <article ng-click="openArticle(post.ID)" class="blog category" ng-repeat="post in posts" ng-if="post.CATEGORY==category" id="post-{{post.ID}}" back-img=http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}} ng-style="style()" resize>  
+        <div class="article--content">
+            <time><span class="date--date">{{post.TIME * 1000 | date:'dd/MM'}}</span></time>
+            <header><div class="header-container"><h1>{{post.TITLE}}</h1></div></header>                
+            <p class="post-content" ng-bind-html="post.CONTENT"></p>
+            <div class="additional-options">
+                <ul class="soc">
+                    <li>
+                        <a 
+                           class="soc-twitter"
+                           ng-click="$event.stopPropagation()"
+                           socialshare
+                           socialshare-provider="twitter"
+                           socialshare-text="Lotart - {{post.TITLE}}"
+                           socialshare-url="http://playground.lotart.lv/article/{{post.ID}}">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="soc-facebook soc-icon-last"
+                           ng-click="$event.stopPropagation()"
+                           socialshare
+                           socialshare-provider="facebook"
+                           socialshare-url="http://playground.lotart.lv/article/{{post.ID}}">
+                        </a>
+                    </li>
+                </ul>
+            </div>    
+        </div> 
+    </article>
+</div>

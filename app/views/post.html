@@ -1,0 +1,37 @@
+<div class="posting--form">
+    <div class="admin-blog--nav"><a class="add-post" href="/admin-blog">Go to all Posts</a></div>   
+    <h1>New post</h1>
+    <div>
+        <form ng-submit="blogForm.submitTheForm()">
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="blog" value="blog" ng-model="blogForm.postType">
+                        Blog
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="french" value="french" ng-model="blogForm.postType">
+                        French
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="tech" value="tech" ng-model="blogForm.postType">
+                        Web Tech
+                    </label>
+                </div>
+            </div>
+            <label for="title">Music</label>
+            <input type="text" name="music" ng-model="blogForm.music" />  <br/>
+            <label for="title">Title</label>
+            <input type="text" name="title" ng-model="blogForm.title" />  <br/>
+            <label for="content">Content</label>
+            <text-angular ng-model="blogForm.content"></text-angular>
+            <input type="file" id="file1" name="file" multiple
+                   ng-files="getTheFiles($files)" />
+            <input type="submit" value="{{blogForm.uploadStatus}}" />
+        </form>
+    </div> 
+</div>
