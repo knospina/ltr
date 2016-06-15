@@ -12,12 +12,20 @@ angular.module('lotartApp')
 
     var urlBase = 'http://playground.lotart.lv/slim/db-operation.php/';
 
-    this.allPosts = function(){
-        return $http.get(urlBase);
+    this.allPosts = function(data){
+        return $http.post(urlBase, data);
+    };
+
+    this.allDates = function(){
+        return $http.get(urlBase + 'get_dates');
     };
 
     this.onePost = function(id){
         return $http.get(urlBase + 'article/' + id);
+    };
+
+    this.updatePost = function(data){
+        return $http.put(urlBase + 'update_article', data);
     };
 
     this.logIn = function(data){

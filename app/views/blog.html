@@ -1,31 +1,49 @@
-<div class="blog-container">
-    <article ng-click="openArticle(post.ID)" class="blog category" ng-repeat="post in posts" ng-if="post.CATEGORY==category" id="post-{{post.ID}}" back-img=http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}} ng-style="style()" resize>  
-        <div class="article--content">
-            <time><span class="date--date">{{post.TIME * 1000 | date:'dd/MM'}}</span></time>
-            <header><div class="header-container"><h1>{{post.TITLE}}</h1></div></header>                
-            <p class="post-content" ng-bind-html="post.CONTENT"></p>
-            <div class="additional-options">
-                <ul class="soc">
-                    <li>
-                        <a 
-                           class="soc-twitter"
-                           ng-click="$event.stopPropagation()"
-                           socialshare
-                           socialshare-provider="twitter"
-                           socialshare-text="Lotart - {{post.TITLE}}"
-                           socialshare-url="http://playground.lotart.lv/article/{{post.ID}}">
-                        </a>
-                    </li>
-                    <li>
-                        <a class="soc-facebook soc-icon-last"
-                           ng-click="$event.stopPropagation()"
-                           socialshare
-                           socialshare-provider="facebook"
-                           socialshare-url="http://playground.lotart.lv/article/{{post.ID}}">
-                        </a>
-                    </li>
-                </ul>
-            </div>    
+<div class="container">{{category}}
+    <article class="blog category" ng-repeat="post in posts" ng-if="post.CATEGORY==category" id="post-{{post.ID}}" back-img=http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}} ng-style="style()" resize>  
+        <div class="row">
+            <div class="col-sm-10">
+                <h1 ng-click="openArticle(post.ID)">{{post.TITLE}}</h1> 
+            </div>
+            <div class="col-sm-2">
+                <time ng-cloak class="date--date">{{post.TIME * 1000 | date:'dd/MM'}}</time>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}}">
+            </div>
+            <div class="col-sm-9">
+                <p class="text-justify" ng-bind-html="post.CONTENT"></p>
+            </div>   
+            <div class="col-sm-9 col-sm-offset-3 text-center">
+                <button ng-click="openArticle(post.ID)" class="btn btn-primary" ng-show="post.PARAGRAPHS > 1">Lasīt visu</button>
+            </div>
         </div> 
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="pull-right">
+                    <ul class="soc">
+                        <li>
+                            <a 
+                               class="soc-twitter"
+                               ng-click="$event.stopPropagation()"
+                               socialshare
+                               socialshare-provider="twitter"
+                               socialshare-text="Lotart - {{post.TITLE}}"
+                               socialshare-url="http://playground.lotart.lv/article/{{post.ID}}">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="soc-facebook soc-icon-last"
+                               ng-click="$event.stopPropagation()"
+                               socialshare
+                               socialshare-provider="facebook"
+                               socialshare-url="http://playground.lotart.lv/article/{{post.ID}}">
+                            </a>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
     </article>
 </div>

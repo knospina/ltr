@@ -35,6 +35,14 @@ angular
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl'
     })
+        .when('/blog/:year', {
+        templateUrl: 'views/blog.html',
+        controller: 'BlogCtrl'
+    })
+        .when('/blog/:year/:month', {
+        templateUrl: 'views/blog.html',
+        controller: 'BlogCtrl'
+    })
         .when('/french', {
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl'

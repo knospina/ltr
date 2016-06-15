@@ -1,57 +1,61 @@
-<div class="article--container">
-    <article class="blog" id="post-{{post[0].ID}}">   
-        <header>         
-            <h1 ng-bind="post[0].TITLE"></h1>
-            <time>{{post[0].TIME * 1000 | date:'dd.MM.yyyy HH:mm'}}</time>   
-        </header>
-        <p class="article--text" ng-bind-html="post[0].CONTENT"></p>    
-        <p ng-show="post[0].MUSIC"><strong>Fonā skan: </strong>{{post[0].MUSIC}}</p>  
-        <!--<img ng-repeat="image in post[0].IMAGES" ng-src="{{'/img/' + image.SRC}}" />-->
+<div class="container post">
+    <article id="post-{{post[0].ID}}">   
+        <div class="row">
+            <div class="col-sm-9">
+                <h1>{{post[0].TITLE}}</h1> 
+            </div>
+            <div class="col-sm-3">
+                <time ng-cloak class="date--date">{{post[0].TIME * 1000 | date:'dd/MM/yy'}}</time>
+            </div>
+        </div>
+        <div class="row">
+            <p class="text-justify" ng-bind-html="post[0].CONTENT"></p>    
+            <p ng-show="post[0].MUSIC"><strong>Fonā skan: </strong>{{post[0].MUSIC}}</p>  
+
+            <div class="slider" ng-style="sliderHeight" ng-hide="post[0].IMAGES.length <=1 && post[0].IMAGES[0].SRC === 'main_bg.jpg'">
+
+                <!-- enumerate all photos -->
+                <div ng-repeat="photo in post[0].IMAGES" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-style="sliderHide">
+                    <img src="http://playground.lotart.lv/img/{{photo.SRC}}" />
+                </div>
 
 
-        <div class="container slider" ng-style="sliderHeight" ng-hide="post[0].IMAGES.length <=1 && post[0].IMAGES[0].SRC === 'main_bg.jpg'">
+                <!-- prev / next controls -->
+                <a class="arrow prev" href="#" ng-click="showPrev()" ng-style="sliderHide"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a class="arrow next" href="#" ng-click="showNext()" ng-style="sliderHide"><i class="glyphicon glyphicon-chevron-right"></i></a>
 
-            <!-- enumerate all photos -->
-            <div ng-repeat="photo in post[0].IMAGES" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-style="sliderHide">
-                <img ng-src="{{'http://playground.lotart.lv/img/' + photo.SRC}}" />
+                <!-- extra navigation controls -->
+                <ul class="nav">
+                    <li ng-repeat="photo in post[0].IMAGES" ng-class="{'active':isActive($index)}">
+                        <img src="http://playground.lotart.lv/img/{{photo.SRC}}" alt="http://playground.lotart.lv/img/{{photo.SRC}}" title="http://playground.lotart.lv/img/{{photo.SRC}}" ng-click="showPhoto($index)" />
+                    </li>
+                </ul>
+
             </div>
 
-
-            <!-- prev / next controls -->
-            <a class="arrow prev" href="#" ng-click="showPrev()" ng-style="sliderHide"></a>
-            <a class="arrow next" href="#" ng-click="showNext()" ng-style="sliderHide"></a>
-
-            <!-- extra navigation controls -->
-            <ul class="nav">
-                <li ng-repeat="photo in post[0].IMAGES" ng-class="{'active':isActive($index)}">
-                    <img src="{{'http://playground.lotart.lv/img/' + photo.SRC}}" alt="{{'http://playground.lotart.lv/img/' + photo.SRC}}" title="{{'http://playground.lotart.lv/img/' + photo.SRC}}" ng-click="showPhoto($index)" />
-                </li>
-            </ul>
-
+            <div class="pull-right">
+                <ul class="soc">
+                    <li>
+                        <a 
+                           class="soc-twitter"
+                           ng-click="$event.stopPropagation()"
+                           socialshare
+                           socialshare-provider="twitter"
+                           socialshare-text="Lotart - {{post[0].TITLE}}"
+                           socialshare-url="http://playground.lotart.lv/article/{{post[0].ID}}">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="soc-facebook soc-icon-last"
+                           ng-click="$event.stopPropagation()"
+                           socialshare
+                           socialshare-provider="facebook"
+                           socialshare-url="http://playground.lotart.lv/article/{{post[0].ID}}">
+                        </a>
+                    </li>
+                </ul>
+            </div> 
         </div>
-
-        <div class="additional-options">
-            <ul class="soc">
-                <li>
-                    <a 
-                       class="soc-twitter"
-                       ng-click="$event.stopPropagation()"
-                       socialshare
-                       socialshare-provider="twitter"
-                       socialshare-text="Lotart - {{post[0].TITLE}}"
-                       socialshare-url="http://playground.lotart.lv/article/{{post[0].ID}}">
-                    </a>
-                </li>
-                <li>
-                    <a class="soc-facebook soc-icon-last"
-                       ng-click="$event.stopPropagation()"
-                       socialshare
-                       socialshare-provider="facebook"
-                       socialshare-url="http://playground.lotart.lv/article/{{post[0].ID}}">
-                    </a>
-                </li>
-            </ul>
-        </div> 
     </article>
     <dir-disqus config="disqusConfig" ready-to-bind="true"></dir-disqus>
 </div>

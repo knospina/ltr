@@ -1,0 +1,136 @@
+/* Gallery */
+
+.post {
+
+    .slider {
+        height: 500px;
+        margin: 0 auto;
+        position: relative;
+        width: auto;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        opacity:1;
+
+        & > img {
+            width: auto;
+            height: auto;
+            max-height: 500px;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        &.ng-hide-add {
+            opacity:1;
+
+            -webkit-transition:1s linear all;
+            -moz-transition:1s linear all;
+            -o-transition:1s linear all;
+            transition:1s linear all;
+
+            -webkit-transform-origin: right top 0;
+            -moz-transform-origin: right top 0;
+            -ms-transform-origin: right top 0;
+            -o-transform-origin: right top 0;
+            transform-origin: right top 0;
+
+            &.ng-hide-add-active {
+                opacity:0;
+            }
+        }
+
+        &.ng-hide-remove {
+            -webkit-transition:1s linear all;
+            -moz-transition:1s linear all;
+            -o-transition:1s linear all;
+            transition:1s linear all;
+
+            display:block!important;
+            opacity:0;
+
+            &.ng-hide-remove-active {
+                opacity:1;
+            }
+        }
+
+    }
+
+    &:hover .arrow {
+        opacity: 1;
+    }
+
+    .arrow {
+        cursor: pointer;
+        display: block;
+        height: 64px;
+        margin-top: -35px;
+        outline: medium none;
+        position: absolute;
+        top: 50%;
+        width: 64px;
+        z-index: 5;
+        font-size: 50px;
+        color: rgb(51, 51, 51);
+        line-height: 75px;
+        opacity: 0.5;
+
+        &.prev {
+            left: 20px;
+            transition: all 0.2s linear 0s;
+            line-height: 78px;
+
+            &:hover{
+                opacity:1;
+            }
+        }
+
+        &.next {
+            right: 20px;
+            padding-left: 7px;
+            transition: all 0.2s linear 0s;
+
+            &:hover{
+                opacity:1;
+            }
+        }
+    }
+
+    .nav {
+        bottom: -4px;
+        display: block;
+        height: 85px;
+        left: 0;
+        margin: 0 auto;
+        padding: 1em 0 0.8em;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 100%;
+        z-index: 5;
+
+        li {
+            background: rgb(18, 42, 10);
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 8px;
+            position: relative;
+
+            img {
+                height: 60px;
+                width: auto;
+            }
+
+            &.active img {
+                opacity: 0.5;
+            }
+        }
+    }
+
+}
+
+/* End of Gallery */

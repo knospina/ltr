@@ -46,6 +46,10 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['newer:jshint:test', 'karma']
             },
+            sass: {
+                files: '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}',
+                tasks: ['sass:dev']
+            },
             styles: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
                 tasks: ['newer:copy:styles', 'autoprefixer']
@@ -154,6 +158,27 @@ module.exports = function (grunt) {
             server: '.tmp'
         },
 
+        sass: {
+            dev: {
+                options: {
+                    style: 'expanded',
+                    compass: true
+                },
+                files: {
+                    '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                }
+            },
+            dist: {
+                options: {
+                    style: 'compressed',
+                    compass: true
+                },
+                files: {
+                    '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                }
+            }
+        },
+
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
@@ -168,6 +193,7 @@ module.exports = function (grunt) {
                 }]
             }
         },
+
 
         // Automatically inject Bower components into the app
         wiredep: {

@@ -1,1 +1,66 @@
-<p>This is the edit view.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+            <div class="text-right"><a class="btn btn-primary" href="/adminBlog">Go to all Posts</a></div>  
+        </div>    
+    </div>
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <label>Post type</label>
+                </div>
+                <div class="radio col-sm-10">
+                    <label>
+                        <input type="radio" name="blog" value="blog" ng-model="blogForm.postType">
+                        Blog
+                    </label>
+                </div>
+                <div class="radio col-sm-10 col-sm-offset-2">
+                    <label>
+                        <input type="radio" name="french" value="french" ng-model="blogForm.postType">
+                        French
+                    </label>
+                </div>
+                <div class="radio col-sm-10 col-sm-offset-2">
+                    <label>
+                        <input type="radio" name="tech" value="tech" ng-model="blogForm.postType">
+                        Web Tech
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2" for="title">Music</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="music" ng-model="blogForm.music">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2" for="title">Title</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="title" ng-model="blogForm.title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2" for="content">Content</label>
+                <div class="col-sm-10">
+                    <text-angular ng-model="blogForm.content"></text-angular>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="upload" class="col-sm-2">Files</label>
+                <div class="col-sm-10">
+                    <input id="upload" type="file" id="file1" name="file" multiple
+                           ng-files="getTheFiles($files)">  
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button class="btn btn-success" ng-click="blogForm.submitTheForm()" type="submit" >{{blogForm.uploadStatus}}</button>
+                    <a class="btn btn-warning" href="/adminBlog">Cancel</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

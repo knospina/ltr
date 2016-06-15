@@ -1,18 +1,28 @@
-<div class="admin-blog-container">
-    <div class="admin-blog--nav">
-        <a class="add-post" href="/post">Add new Post</a>
-        <a class="logout" href="#" ng-click="logout()">Log out</a>
-    </div>    
-    <article class="blog category" ng-repeat="post in posts" id="post-{{post.ID}}">  
-        <div class="article--content">
-            <time><span class="date--date"><strong>Datums: </strong>{{post.TIME * 1000 | date:'dd/MM/yyyy'}}</span></time>
-            <p class="music"><strong>Mūzika: </strong>{{post.MUSIC}}</p>
-            <header><div class="header-container"><h1>{{post.TITLE}}</h1></div></header>                
-            <p class="post-content" ng-bind-html="post.CONTENT"></p>
-            <div class="additional-options">
-                <a ng-click="editArticle(post.ID)">Labot</a>
-                <a ng-click="deleteArticle(post.ID)">Dzēst</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+            <div class="text-right">
+                <a class="add-post btn btn-primary" href="/post">Add new Post</a> 
+                <a class="logout btn btn-warning" href="#" ng-click="logout()">Log out</a>
+            </div>  
+        </div>    
+    </div>
+    <div class="row">
+        <article class="blog category" ng-repeat="post in posts" id="post-{{post.ID}}">  
+            <div class="col-sm-12">
+                <header><div class="header-container"><h1>{{post.TITLE}}</h1></div></header>
             </div>
-        </div> 
-    </article>
+            <div class="col-sm-3">
+                <time><strong>{{post.TIME * 1000 | date:'dd/MM/yyyy'}}</strong></time>
+                <p class="music"><strong>Mūzika: </strong>{{post.MUSIC}}</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-justify" ng-bind-html="post.CONTENT"></p>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3">
+                <a class="btn btn-success" ng-click="editArticle(post.ID)">Labot</a>
+                <a class="btn btn-danger" ng-click="deleteArticle(post.ID)">Dzēst</a>
+            </div>
+        </article>
+    </div>
 </div>
