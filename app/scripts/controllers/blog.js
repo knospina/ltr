@@ -35,7 +35,6 @@ angular.module('lotartApp')
         console.log('all');
     }    
 
-
     $scope.posts = {};
     $scope.category = $location.path().split('/')[1];
 

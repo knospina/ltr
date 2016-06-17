@@ -66,9 +66,7 @@ angular.module('lotartApp')
                         item = {};
                     } else {
                         //push only month
-                        console.log('pirms', $scope.dates[yearsLength].months);
                         $scope.dates[$scope.dates.length-1].months.push({nr: monthNr, name: month});
-                        console.log('[ec]', $scope.dates[yearsLength].months);
                     }
                     missingYear = false;
                     missingMonth = false;
@@ -77,7 +75,6 @@ angular.module('lotartApp')
             }
 
         }
-        console.log($scope.dates);
 
     };
 });

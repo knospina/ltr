@@ -1,16 +1,21 @@
-<div class="container">{{category}}
+<div class="container">
+    <div ng-show="!posts || posts.length === 0" class="row">
+        <div class="col-sm-12">
+            <p>Šeit nekā nav, varbūt pamēģini citu gadu vai mēnesi?</p>
+        </div>
+    </div>
     <article class="blog category" ng-repeat="post in posts" ng-if="post.CATEGORY==category" id="post-{{post.ID}}" back-img=http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}} ng-style="style()" resize>  
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-10 col-xs-9">
                 <h1 ng-click="openArticle(post.ID)">{{post.TITLE}}</h1> 
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-3">
                 <time ng-cloak class="date--date">{{post.TIME * 1000 | date:'dd/MM'}}</time>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-3">
-                <img src="http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}}">
+                <img src="http://playground.lotart.lv/img/{{post.IMAGES[0].SRC}}" ng-click="openArticle(post.ID)">
             </div>
             <div class="col-sm-9">
                 <p class="text-justify" ng-bind-html="post.CONTENT"></p>
