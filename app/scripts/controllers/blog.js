@@ -13,7 +13,7 @@ angular.module('lotartApp')
     var queryParam = {};
 
     if ($routeParams.year) {
-        let start = 0, end = 0;
+        var start = 0, end = 0;
         if ($routeParams.month){
             start = new Date($routeParams.year, parseInt($routeParams.month)-1);
             end = new Date($routeParams.year, $routeParams.month);
@@ -49,8 +49,8 @@ angular.module('lotartApp')
 
     $scope.changePosts = function(posts){        
         console.log('changed posts', posts);  
-        let postCount = posts.length;
-        for (let i = 0; i < postCount; i++){            
+        var postCount = posts.length;
+        for (var i = 0; i < postCount; i++){            
             posts[i].PARAGRAPHS = (posts[i].CONTENT.match(/<p>/g)||[]).length;
         }
 

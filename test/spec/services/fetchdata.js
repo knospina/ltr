@@ -11,8 +11,8 @@ describe('Service: fetchData', function () {
     fetchData = _fetchData_;
   }));
 
-  it('should do something', function () {
+  /*it('should do something', function () {
     expect(!!fetchData).toBe(true);
-  });
+  });*/
 
 });

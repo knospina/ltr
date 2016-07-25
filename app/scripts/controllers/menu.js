@@ -11,7 +11,7 @@ angular.module('lotartApp')
     .controller('MenuCtrl', function ($scope, fetchData) {
     $scope.dates = [];
 
-    const months = ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', 'Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'];
+    var months = ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', 'Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'];
 
     fetchData.allDates()
         .then(function(response){
@@ -21,11 +21,11 @@ angular.module('lotartApp')
     });
 
     $scope.parseDates = function(timestamps) {
-        let arrLength = timestamps.length;
-        let temp = '', year = '', month='', monthNr=0;
-        let item = {};
+        var arrLength = timestamps.length;
+        var temp = '', year = '', month='', monthNr=0;
+        var item = {};
 
-        for (let i = 0; i < arrLength; i++) {
+        for (var i = 0; i < arrLength; i++) {
             temp = new Date(parseInt(timestamps[i].TIME)*1000);
             year = temp.getFullYear();
             monthNr = temp.getMonth();
@@ -40,10 +40,10 @@ angular.module('lotartApp')
                 item = {};
 
             } else {
-                let missingYear = false;
-                let missingMonth = false;
+                var missingYear = false;
+                var missingMonth = false;
                 
-                let yearsLength = $scope.dates.length-1;
+                var yearsLength = $scope.dates.length-1;
 
                 if (year === $scope.dates[yearsLength].year){
 
