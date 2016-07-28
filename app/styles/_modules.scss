@@ -3,6 +3,9 @@ article {
 }
 
 article.blog {
+    a {
+        color: inherit;
+    }
     h1, img {
         cursor: pointer;
     }

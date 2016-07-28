@@ -31,15 +31,19 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
     })
-        .when('/blog', {
+        .when('/paris', {
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl'
     })
-        .when('/blog/:year', {
+        /*.when('/blog', {
+        templateUrl: 'views/blog.html',
+        controller: 'BlogCtrl'
+    })*/
+        .when('/paris/:year', {
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl'
     })
-        .when('/blog/:year/:month', {
+        .when('/paris/:year/:month', {
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl'
     })

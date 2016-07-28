@@ -17,13 +17,9 @@ angular.module('lotartApp')
         if ($routeParams.month){
             start = new Date($routeParams.year, parseInt($routeParams.month)-1);
             end = new Date($routeParams.year, $routeParams.month);
-            console.log(start);
-            console.log(end);
         } else {
             start = new Date($routeParams.year);
             end = new Date((parseInt($routeParams.year)+1).toString());
-            console.log(start);
-            console.log(end);
         }
         start = Math.round((start.getTime() / 1000));
         end = Math.round((end.getTime() / 1000));
@@ -31,24 +27,25 @@ angular.module('lotartApp')
             'start' : start,
             'end' : end
         };
-    } else {
-        console.log('all');
-    }    
+    }   
 
     $scope.posts = {};
-    $scope.category = $location.path().split('/')[1];
+    if ($location.path().split('/')[1] === 'paris'){
+        $scope.category = 'blog';
+    } else {
+        $scope.category = $location.path().split('/')[1];
+    }
+    
 
     fetchData.allPosts(queryParam)
         .then(function(response){
         $scope.posts = response.data;
-        console.log($scope.posts);
         $scope.changePosts($scope.posts);
     }, function(error){
         $scope.posts = 'Error was received: ' + error;
     });
 
-    $scope.changePosts = function(posts){        
-        console.log('changed posts', posts);  
+    $scope.changePosts = function(posts){         
         var postCount = posts.length;
         for (var i = 0; i < postCount; i++){            
             posts[i].PARAGRAPHS = (posts[i].CONTENT.match(/<p>/g)||[]).length;
